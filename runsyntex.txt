@@ -1,3 +1,8 @@
 docker run --rm -d --name db -p 5555:5432 --net pcnetwrk --mount source=dbvolume,target=/data db
 docker run -it --rm --name pc --net pcnetwrk --mount source=pcvolume,target=/data pc bash
 docker build -t pc2 -f dockerfile_v2 .
+
+docker exec -it db bash
+psql -U weetong -d testdb
+
+inside /data there is a file to connect pythong to postgres
